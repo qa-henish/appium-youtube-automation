@@ -1,3 +1,6 @@
+import { swipeUp } from "../utils/gestureHelper";
+
+
 class HomePage {
     get youtubeLogo() { return $('~YouTube'); }
 
@@ -20,6 +23,18 @@ class HomePage {
     get backButton() { return $('~Navigate up'); }
 
     get filters() { return $('~filters'); }
+
+    get feedSection() { return $('//android.view.ViewGroup[@index="0"]'); }
+
+    get tabBar() { return $('//android.widget.HorizontalScrollView[@resource-id="com.google.android.youtube:id/pivot_bar"]'); }
+
+    get homeTab() { return $('//android.widget.Button[@content-desc="Home"]'); }
+
+    get shortTab() { return $('//android.widget.Button[@content-desc="Shorts"]'); }
+
+    get subscriptionTab() { return $('//android.widget.Button[@index="3"]'); }
+
+    get profileTab() { return $('//android.widget.Button[@content-desc="You"]'); }
 
     /*===========================================*/
     /*               Page Actions                */
@@ -85,9 +100,82 @@ class HomePage {
         await expect(this.searchBar).not.toBeDisplayed();
     }
 
+    /**
+    * Check if the filters are displayed
+    */
     async isFiltersDisplayed() {
         await this.filters.waitForDisplayed();
         await expect(this.filters).toBeDisplayed();
+    }
+
+    /**
+    * Check if the feed section is displayed
+    */
+    async isFeedSectionDisplayed() {
+        await this.feedSection.waitForDisplayed();
+        await expect(this.feedSection).toBeDisplayed();
+        return true;
+    }
+
+    /**
+    * Check if the tab bar is displayed
+    */
+    async isTabBarDisplayed() {
+        await this.tabBar.waitForDisplayed();
+        await expect(this.tabBar).toBeDisplayed();
+        return true;
+    }
+
+    /**
+    * Check if the home tab is displayed
+    */
+    async isHomeTabDisplayed() {
+        await this.homeTab.waitForDisplayed();
+        await expect(this.homeTab).toBeDisplayed();
+        return true;
+    }
+
+    async isShortTabDisplayed() {
+        await this.shortTab.waitForDisplayed();
+        await expect(this.shortTab).toBeDisplayed();
+        return true;
+    }
+
+    async isSubscriptionTabDisplayed() {
+        await this.subscriptionTab.waitForDisplayed();
+        await expect(this.subscriptionTab).toBeDisplayed();
+        return true;
+    }
+
+    async isLibraryTabDisplayed() {
+        await this.libraryTab.waitForDisplayed();
+        await expect(this.libraryTab).toBeDisplayed();
+        return true;
+    }
+
+    async isProfileTabDisplayed() {
+        await this.profileTab.waitForDisplayed();
+        await expect(this.profileTab).toBeDisplayed();
+        return true;
+    }
+
+    /**
+    * Click on the home tab
+    */
+    async clickOnHomeTab() {
+        await this.homeTab.click();
+    }
+
+    async clickOnShortTab() {
+        await this.shortTab.click();
+    }
+
+    async clickOnSubscriptionTab() {
+        await this.subscriptionTab.click();
+    }
+
+    async clickOnProfileTab() {
+        await this.profileTab.click();
     }
 }
 
