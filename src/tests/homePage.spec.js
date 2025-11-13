@@ -10,6 +10,7 @@ describe('Logo', () => {
             await HomePage.checkYouTubeLogo();
         } catch (error) {
             console.log(error);
+            throw error;
         }
     });
 });

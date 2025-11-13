@@ -1,6 +1,3 @@
-import { swipeUp } from "../utils/gestureHelper";
-
-
 class HomePage {
     get youtubeLogo() { return $('~YouTube'); }
 
