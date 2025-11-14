@@ -30,6 +30,7 @@ class ShortsPage {
     async clickLikeShortBtn() {
         await this.likeShortBtn.click();
     }
+
 }
 
 export default new ShortsPage();

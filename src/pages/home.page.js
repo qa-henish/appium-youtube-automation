@@ -33,6 +33,8 @@ class HomePage {
 
     get profileTab() { return $('//android.widget.Button[@content-desc="You"]'); }
 
+    get getVideo() { return $('//android.support.v7.widget.RecyclerView[@resource-id="com.google.android.youtube:id/results"]/android.view.ViewGroup[2]') }
+
     /*===========================================*/
     /*               Page Actions                */
     /*===========================================*/
@@ -173,6 +175,10 @@ class HomePage {
 
     async clickOnProfileTab() {
         await this.profileTab.click();
+    }
+
+    async playVideo() {
+        await this.getVideo.click();
     }
 }
 

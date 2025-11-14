@@ -1,9 +1,22 @@
-import HomePage from "../pages/home.page";
+    import HomePage from "../pages/home.page";
 import { swipeUp } from "../utils/gestureHelper";
 
 /*===========================================*/
 /*               Test Cases                  */
 /*===========================================*/
+
+describe('Navigate to Home', () => {
+    it('should navigate to the home screen', async () => {
+        try {
+            await HomePage.clickOnHomeTab();
+        } catch (error) {
+            console.log(error);
+            throw error;
+
+            }
+    })
+})
+
 describe('Logo', () => {
     it('should check YouTube logo', async () => {
         try {
@@ -89,6 +102,17 @@ describe('Cast', () => {
                         await HomePage.clickOnProfileTab();
                     }
                 }
+            } catch (error) {
+                console.log(error);
+                throw error;
+            }
+        });
+    });
+
+    describe('Play video ', () => {
+        it('should play video', async () => {
+            try {
+                await HomePage.playVideo();
             } catch (error) {
                 console.log(error);
                 throw error;
